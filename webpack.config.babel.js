@@ -1,7 +1,9 @@
-import merge from 'webpack-merge';
-import baseConfig from './webpack/webpack.base.config';
-import devConfig from './webpack/webpack.dev.config';
-import prdConfig from './webpack/webpack.prd.config';
+'use strict';
+
+const merge = require('webpack-merge');
+const baseConfig = require('./config/webpack.base.config');
+const devConfig = require('./config/webpack.dev.config');
+const prdConfig = require('./config/webpack.prd.config');
 
 const TARGET = process.env.npm_lifecycle_event;
 
@@ -14,4 +16,4 @@ switch (TARGET) {
     config = merge.smart(baseConfig, devConfig);
 }
 
-export default config;
+module.exports = config;

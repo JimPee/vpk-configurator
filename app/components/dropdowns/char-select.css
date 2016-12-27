@@ -1,0 +1,37 @@
+.label {
+  display: block;
+  color: white;
+  background-color: #4ca0ff;
+  padding: 5px;
+  border-radius: 8px;
+  width: 230px;
+  margin: 5px;
+  font-size: 15px;
+}
+
+.errorLabel {
+  composes: label;
+  background-color: red;
+}
+
+.select {
+  width: 250px;
+  margin: 0;
+}
+
+.select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.errorSelect {
+  composes: select;
+}
+
+.errorSelect div {
+  border-color: red;
+}
+
+.select span > span {
+  font-size: 30px !important;
+}

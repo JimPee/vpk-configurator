@@ -1,0 +1,17 @@
+.home {
+  color: black;
+  text-align: center;
+}
+
+.mainContainer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+.mainContainer > div {
+  width: 50%;
+}

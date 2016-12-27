@@ -1,0 +1,13 @@
+.trigger {
+  cursor: pointer;
+  display: block;
+  color: white;
+  background-color: #009a00;
+  padding: 10px;
+  border-radius: 8px;
+  width: 300px;
+  margin: 5px auto;
+  font-size: 15px;
+  border: none;
+  outline: none;
+}

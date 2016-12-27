@@ -1,26 +1,39 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
+import DevTools from '../components/dev-tools';
+import rootReducer from '../reducers';
+import api from '../middleware/api';
 
 const logger = createLogger({});
 
-export default function configureStore(rootReducer) {
+export default function configureStore() {
   let createStoreWithMiddleware;
 
   if (__DEV__) {
-    // eslint-disable-next-line no-underscore-dangle
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    createStoreWithMiddleware = composeEnhancers(
+    createStoreWithMiddleware = compose(
       applyMiddleware(
         thunk,
-        logger,
+        api,
+        logger
       ),
+      window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument()
     )(createStore);
   } else {
     createStoreWithMiddleware = compose(
-      applyMiddleware(thunk),
+     applyMiddleware(thunk, api)
    )(createStore);
   }
 
-  return createStoreWithMiddleware(rootReducer);
+  const store = createStoreWithMiddleware(rootReducer);
+
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers', () => {
+      const nextRootReducer = require('../reducers'); // eslint-disable-line
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+
+  return store;
 }

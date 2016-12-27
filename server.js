@@ -1,21 +1,31 @@
-import path from 'path';
-import express from 'express';
-import webpack from 'webpack';
-import webpackMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import proxy from 'proxy-middleware';
-import url from 'url';
-import morgan from 'morgan';
-import yargs from 'yargs';
-import config from './webpack.config.babel';
+'use strict';
 
-const argv = yargs.argv;
+const path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const webpackMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const proxy = require('proxy-middleware');
+const url = require('url');
+const morgan = require('morgan');
+const config = require('./webpack.config.babel');
+
+const argv = require('yargs').argv;
+
 const logger = console;
-const backendUrl = '';
+// Azure 1
+const backendUrl = 'http://bemecdev01.intra.sps.com:8000';
+// Azure 2
+// const backendUrl = 'http://svbe-dev01.vpkgrp.int:8000';
+// Azure 3
+// const backendUrl = 'http://rdwdcr01.bt.dcsc.be:8000';
+
 const production = !!argv.production;
-const port = 3010;
+const port = 3015;
 const host = 'localhost';
+
 const app = express();
+
 const PATHS = {
   dist: path.join(__dirname, 'dist'),
   index: path.join(__dirname, 'dist', 'index.html'),
@@ -36,24 +46,29 @@ if (!production) {
   app.use(morgan('dev'));
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
-  app.use('/api', proxy(url.parse(`${backendUrl}/$api`)));
+  app.use('/sap/bc', proxy(url.parse(`${backendUrl}/sap/bc`)));
 
-  app.get(/^((?!\/api).)*$/, (req, res) => {
+  app.get(/^((?!\/sap).)*$/, (req, res) => {
     res.write(middleware.fileSystem.readFileSync(PATHS.index));
     res.end();
   });
 } else {
   logger.info('serving production');
   app.use(express.static(PATHS.dist));
-  app.use('/api', proxy(url.parse(`${backendUrl}/$api`)));
-  app.get(/^((?!\/api).)*$/, (req, res) => {
+  app.use('/sap/bc', proxy(url.parse(`${backendUrl}/sap/bc`)));
+
+  app.get(/^((?!\/sap).)*$/, (req, res) => {
     res.sendFile(PATHS.index);
   });
 }
 
-app.listen(port, host, (err) => {
-  if (err) {
-    logger.log(err);
-  }
-  logger.info('==> Open up http://%s:%s in your browser.', host, port);
-});
+if (process.env.PORT) {
+  app.listen(process.env.PORT);
+} else {
+  app.listen(port, host, (err) => {
+    if (err) {
+      logger.log(err);
+    }
+    logger.info('==> Open up http://%s:%s in your browser.', host, port);
+  });
+}

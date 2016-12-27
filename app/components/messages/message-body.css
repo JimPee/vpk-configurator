@@ -1,0 +1,19 @@
+.message {
+  width: 420px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+.success {
+  composes: message;
+  background-color: #009a00;
+  color: white;
+}
+
+.error {
+  composes: message;
+  background-color: red;
+  color: white;
+}
