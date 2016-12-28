@@ -6,6 +6,10 @@ import Header from './header';
 import { getAllSelections, checkSelections, updateValue } from '../actions/selections-actions';
 import { getCheckMessages } from '../selectors/message-selectors';
 import MainPanelContainer from './main-panel-container';
+import OverviewContainer from './overview-container';
+import PreviewContainer from './preview-container';
+import SidepanelContainer from './sidepanel-container';
+import 'bootstrap-grid/dist/grid.min.css';
 
 class AppContainer extends Component {
   componentDidMount() {
@@ -13,11 +17,24 @@ class AppContainer extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='container'>
         <Header />
-        <div className={styles.mainContainer}>
-          <MainPanelContainer className={styles.container} />
-        </div>
+					<div className="row">
+						<div className='col-md-12'>
+							<MainPanelContainer />
+						</div>
+					</div>
+					<div className='row'>
+						<div className='col-md-3'>
+							<OverviewContainer />
+						</div>
+						<div className='col-md-6'>
+							<PreviewContainer />
+						</div>
+						<div className='col-md-3'>
+							<SidepanelContainer />
+						</div>
+					</div>
       </div>
     );
   }

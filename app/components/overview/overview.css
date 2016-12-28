@@ -1,0 +1,16 @@
+.overviewHeader {
+	background-color: lightblue;
+	color: white;
+	text-align: center;
+	padding: 5px;
+}
+
+.overviewBody {
+	border: 1px solid black;
+	border-top: none;
+	padding: 5px;
+}
+
+.overview {
+	margin-bottom: 15px;
+}

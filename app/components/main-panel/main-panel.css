@@ -1,0 +1,30 @@
+.scoreBtn {
+	width: 50%;
+}
+
+.configBtn {
+
+}
+
+.simulateBtn {
+
+}
+
+.orderBtn {
+	
+}
+
+.typeDropdown {
+	width: 100%;
+}
+
+.typeDropdown p {
+	width: 50%;
+	text-align: right;
+	display: inline-block;
+}
+
+.typeDropdown select {
+	width: 50%;
+	display: inline-block;
+}

@@ -1,0 +1,7 @@
+.previewImg {
+	background-image: url('http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+	background-position: center; 
+	height: 500px;
+}
