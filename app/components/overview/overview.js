@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import styles from './overview.css';
 
-const Overview = (props) => {
-  const { actions } = props;
+const Overview = () => {
   return (
 		<div className={styles.overview}>
 			<div className={styles.overviewHeader}>
@@ -15,10 +14,6 @@ const Overview = (props) => {
 			</div>
 		</div>
   );
-};
-
-Overview.propTypes = {
-  actions: PropTypes.object.isRequired,
 };
 
 export default Overview;

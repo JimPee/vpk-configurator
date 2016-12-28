@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styles from './main-panel.css';
 
 const MainPanel = (props) => {
-  const { actions } = props;
+  const { boxHasScores, actions } = props;
   return (
 		<div>
 			<div className="row">
@@ -10,8 +10,14 @@ const MainPanel = (props) => {
 					<button className="configBtn">START NEW CONFIG</button>
 				</div>
 				<div className="col-md-6">
-					<button className={styles.scoreBtn}>Scored</button>
-					<button className={styles.scoreBtn}>Not Scored</button>
+          <button
+						className={styles.scoreBtn + ' ' + (boxHasScores && styles.selected)}
+						onClick={actions.setBoxHasScores.bind(this, true)}>
+						Scored</button>
+					<button
+						className={styles.scoreBtn + ' ' + (!boxHasScores && styles.selected)}
+						onClick={actions.setBoxHasScores.bind(this, false)}>
+						Not Scored</button>
 				</div>
 				<div className="col-md-3">
 					<button className="simulateBtn">SIMULATE</button>
@@ -36,6 +42,7 @@ const MainPanel = (props) => {
 
 MainPanel.propTypes = {
   actions: PropTypes.object.isRequired,
+  boxHasScores: PropTypes.bool.isRequired,
 };
 
 export default MainPanel;

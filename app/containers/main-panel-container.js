@@ -1,16 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import MainPanel from '../components/main-panel/main-panel';
+import { setBoxHasScores } from '../actions/selections-actions'
 
 class MainPanelContainer extends Component {
 
   render() {
     return (
       <div>
-        <MainPanel {...this.props} />
+        <MainPanel boxHasScores={this.props.boxHasScores} {...this.props} />
       </div>
     );
   }
 }
 
+MainPanelContainer.propTypes = {
+  boxHasScores: PropTypes.bool.isRequired
+};
 
-export default MainPanelContainer;
+const mapStateToProps = (state) => ({
+  boxHasScores: state.boxProperties.hasScores,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators({
+    setBoxHasScores,
+  }, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPanelContainer);

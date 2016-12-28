@@ -6,6 +6,7 @@ const initialState = {
   selections: [],
 };
 
+
 function selections(state = initialState.selections, action) {
   switch (action.type) {
     case actionTypes.SELECTIONS_REQUEST:

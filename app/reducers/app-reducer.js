@@ -1,6 +1,6 @@
 import { SHOW_LOADING_MODAL, HIDE_LOADING_MODAL } from '../actions/action-types';
 
-function loadingReducer(state = false, action) {
+function appReducer(state = false, action) {
   switch (action.type) {
     case SHOW_LOADING_MODAL:
       return true;
@@ -11,4 +11,4 @@ function loadingReducer(state = false, action) {
   }
 }
 
-export default loadingReducer;
+export default appReducer;

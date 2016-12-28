@@ -2,6 +2,13 @@ import * as actionTypes from '../actions/action-types';
 import { CALL_API } from '../middleware/api';
 import { prepareSelectionsForRequest } from '../utils/prepare-requests';
 
+export function setBoxHasScores(hasScores) {
+  return {
+    type: actionTypes.SELECT_HAS_SCORES,
+    payload: { hasScores },
+  };
+}
+
 // get initial data
 export function getAllSelections() {
   const endpoint = 'zvc_get_vals';

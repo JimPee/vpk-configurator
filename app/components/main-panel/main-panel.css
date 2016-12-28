@@ -2,6 +2,10 @@
 	width: 50%;
 }
 
+.scoreBtn.selected {
+	border: 1px solid red;
+}
+
 .configBtn {
 
 }
@@ -11,7 +15,7 @@
 }
 
 .orderBtn {
-	
+
 }
 
 .typeDropdown {
