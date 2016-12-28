@@ -1,11 +1,12 @@
 .scoreBtn {
-	width: 50%;
+  width: 50%;
 }
 
 .scoreBtn.selected {
-	border: 1px solid red;
+  border: 1px solid red;
 }
 
+/*
 .configBtn {
 
 }
@@ -17,18 +18,19 @@
 .orderBtn {
 
 }
+*/
 
 .typeDropdown {
-	width: 100%;
+  width: 100%;
 }
 
 .typeDropdown p {
-	width: 50%;
-	text-align: right;
-	display: inline-block;
+  width: 50%;
+  text-align: right;
+  display: inline-block;
 }
 
 .typeDropdown select {
-	width: 50%;
-	display: inline-block;
+  width: 50%;
+  display: inline-block;
 }
