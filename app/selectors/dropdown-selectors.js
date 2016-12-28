@@ -7,6 +7,16 @@ function getAllDropdowns(state) {
   return state.dropdowns.dropdowns;
 }
 
+export function getBoardGradeValues(values) {
+  const boardgrade = values.find((values) => {
+    return values.char === 'GRADE_BOARD';
+  });
+  if (!!boardgrade) {
+    return boardgrade.values;
+  }
+  return [];
+}
+
 
 export function getDropdowns(state) {
   return getAllDropdowns(state);

@@ -10,6 +10,7 @@ import OverviewContainer from './overview-container';
 import PreviewContainer from './preview-container';
 import SidepanelContainer from './sidepanel-container';
 import 'bootstrap-grid/dist/grid.min.css';
+import 'react-select/dist/react-select.css';
 
 class AppContainer extends Component {
   componentDidMount() {

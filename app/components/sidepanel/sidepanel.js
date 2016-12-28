@@ -5,10 +5,10 @@ import Dimensions from './dimensions';
 import PaletType from './palet-type';
 
 const Sidepanel = (props) => {
-  const { boxHasScores } = props;
+  const { boxHasScores, boardGradeValues } = props;
   return (
     <div>
-			<BoardGrade />
+			<BoardGrade boardGradeValues={boardGradeValues}/>
 			{ boxHasScores && <Scores /> }
 			<Dimensions />
 			<PaletType />
@@ -18,6 +18,7 @@ const Sidepanel = (props) => {
 
 Sidepanel.propTypes = {
   boxHasScores: PropTypes.bool.isRequired,
+  boardGradeValues: PropTypes.array,
 };
 
 export default Sidepanel;
