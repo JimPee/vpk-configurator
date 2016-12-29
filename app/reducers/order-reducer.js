@@ -9,7 +9,7 @@ const initialState = {
 
 function feedback(state = initialState.feedback, action) {
   switch (action.type) {
-    case actionTypes.CHECK_SELECTIONS_SUCCESS:
+    case actionTypes.CHECK_DROPDOWNS_SUCCESS:
       return {};
     case actionTypes.SIMULATE_ORDER_REQUEST:
       return {};
@@ -22,7 +22,7 @@ function feedback(state = initialState.feedback, action) {
 
 function showSimulate(state = initialState.showSimulate, action) {
   switch (action.type) {
-    case actionTypes.CHECK_SELECTIONS_SUCCESS:
+    case actionTypes.CHECK_DROPDOWNS_SUCCESS:
       if (action.payload.messages.length > 0) {
         return false;
       }
@@ -34,7 +34,7 @@ function showSimulate(state = initialState.showSimulate, action) {
 
 function showCreate(state = initialState.showCreate, action) {
   switch (action.type) {
-    case actionTypes.CHECK_SELECTIONS_SUCCESS:
+    case actionTypes.CHECK_DROPDOWNS_SUCCESS:
       return false;
     case actionTypes.SIMULATE_ORDER_SUCCESS:
       if (action.payload.feedback.rate !== '') {

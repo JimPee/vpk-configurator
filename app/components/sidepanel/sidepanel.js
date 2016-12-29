@@ -8,20 +8,26 @@ const Sidepanel = (props) => {
   const { boxHasScores, boardGradeValues, paletTypes, actions } = props;
   const setBoxScores = actions.setBoxScores;
   const setFefcoSheet = actions.setFefcoSheet;
+  const checkDropdowns = actions.checkDropdowns;
+  const updateValue = actions.updateValue;
   return (
     <div>
-			<BoardGrade boardGradeValues={boardGradeValues}/>
+			<BoardGrade boardGradeValues={boardGradeValues}
+									checkDropdowns={checkDropdowns}
+									updateValue={updateValue}/>
 			{ boxHasScores && <Scores setBoxScores={setBoxScores} setFefcoSheet={setFefcoSheet} /> }
 			<Dimensions />
-			<PaletType paletTypes={paletTypes} />
+			<PaletType paletTypes={paletTypes}
+                 checkDropdowns={checkDropdowns}
+                 updateValue={updateValue} />
     </div>
   );
 };
 
 Sidepanel.propTypes = {
   boxHasScores: PropTypes.bool.isRequired,
-  boardGradeValues: PropTypes.array,
-  paletTypes: PropTypes.array,
+  boardGradeValues: PropTypes.object,
+  paletTypes: PropTypes.object,
   actions: PropTypes.object.isRequired,
 };
 

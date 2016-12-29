@@ -9,9 +9,9 @@ const initialState = {
 
 function checkMessages(state = initialState.checkMessages, action) {
   switch (action.type) {
-    case actionTypes.CHECK_SELECTIONS_REQUEST:
+    case actionTypes.CHECK_DROPDOWNS_REQUEST:
       return state;
-    case actionTypes.CHECK_SELECTIONS_SUCCESS:
+    case actionTypes.CHECK_DROPDOWNS_SUCCESS:
       return action.payload.messages;
     default:
       return state;
@@ -20,7 +20,7 @@ function checkMessages(state = initialState.checkMessages, action) {
 
 function simulateMessages(state = initialState.simulateMessages, action) {
   switch (action.type) {
-    case actionTypes.CHECK_SELECTIONS_SUCCESS:
+    case actionTypes.CHECK_DROPDOWNS_SUCCESS:
       return [];
     case actionTypes.SIMULATE_ORDER_REQUEST:
       return state;
@@ -33,7 +33,7 @@ function simulateMessages(state = initialState.simulateMessages, action) {
 
 function createMessages(state = initialState.createMessages, action) {
   switch (action.type) {
-    case actionTypes.CHECK_SELECTIONS_SUCCESS:
+    case actionTypes.CHECK_DROPDOWNS_SUCCESS:
       return [];
     case actionTypes.CREATE_ORDER_REQUEST:
       return state;

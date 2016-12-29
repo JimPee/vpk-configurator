@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styles from './app-container.css';
 import Header from './header';
-import { getAllSelections, checkSelections, updateValue } from '../actions/selections-actions';
+import { getAllDropdowns, checkDropdowns, updateValue } from '../actions/dropdown-actions';
 import { getCheckMessages } from '../selectors/message-selectors';
 import MainPanelContainer from './main-panel-container';
 import OverviewContainer from './overview-container';
@@ -14,7 +14,7 @@ import 'react-select/dist/react-select.css';
 
 class AppContainer extends Component {
   componentDidMount() {
-    this.props.actions.getAllSelections();
+    this.props.actions.getAllDropdowns();
   }
   render() {
     return (
@@ -43,13 +43,13 @@ class AppContainer extends Component {
 
 const mapStateToProps = (state) => ({
   checkMessages: getCheckMessages(state),
-  loading: state.selections.loading,
+  loading: state.dropdowns.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators({
-    getAllSelections,
-    checkSelections,
+    getAllDropdowns,
+    checkDropdowns,
     updateValue,
   }, dispatch),
 });

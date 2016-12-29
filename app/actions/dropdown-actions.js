@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/action-types';
 import { CALL_API } from '../middleware/api';
-import { prepareSelectionsForRequest } from '../utils/prepare-requests';
+import { prepareDropdownsForRequest } from '../utils/prepare-requests';
 
 export function setBoxHasScores(hasScores) {
   return {
@@ -24,24 +24,24 @@ export function setFefcosheet(fefcosheet) {
 }
 
 // get initial data
-export function getAllSelections() {
+export function getAllDropdowns() {
   const endpoint = 'zvc_get_vals';
 
   return {
     [CALL_API]: {
       types: [
-        actionTypes.SELECTIONS_REQUEST,
-        actionTypes.SELECTIONS_SUCCESS,
-        actionTypes.SELECTIONS_FAILURE,
+        actionTypes.DROPDOWNS_REQUEST,
+        actionTypes.DROPDOWNS_SUCCESS,
+        actionTypes.DROPDOWNS_FAILURE,
       ],
       endpoint,
-      errorMsg: 'failed to fetch selections',
+      errorMsg: 'failed to fetch dropdowns',
     },
   };
 }
 
 // get current inputted/selected data and check with SAP
-function _checkSelections(body) {
+function _checkDropdowns(body) {
   const endpoint = 'zvc_check_val';
 
   return {
@@ -51,21 +51,21 @@ function _checkSelections(body) {
         body,
       },
       types: [
-        actionTypes.CHECK_SELECTIONS_REQUEST,
-        actionTypes.CHECK_SELECTIONS_SUCCESS,
-        actionTypes.CHECK_SELECTIONS_FAILURE,
+        actionTypes.CHECK_DROPDOWNS_REQUEST,
+        actionTypes.CHECK_DROPDOWNS_SUCCESS,
+        actionTypes.CHECK_DROPDOWNS_FAILURE,
       ],
       endpoint,
-      errorMsg: 'failed to check selections',
+      errorMsg: 'failed to check dropdowns',
     },
   };
 }
 
-export function checkSelections() {
+export function checkDropdowns() {
   return (dispatch, getState) => {
-    const values = getState().selections.selections;
-    const body = prepareSelectionsForRequest(values);
-    return dispatch(_checkSelections(body));
+    const values = getState().dropdowns.dropdowns;
+    const body = prepareDropdownsForRequest(values);
+    return dispatch(_checkDropdowns(body));
   };
 }
 

@@ -11,20 +11,14 @@ export function getBoardGradeValues(values) {
   const boardgrades = values.find((values) => {
     return values.char === 'GRADE_BOARD';
   });
-  if (!!boardgrades) {
-    return boardgrades.values;
-  }
-  return [];
+  return boardgrades;
 }
 
 export function getPaletTypes(values) {
   const paletTypes = values.find((values) => {
     return values.char === 'PA_PALLET_TYPE';
   });
-  if (!!paletTypes) {
-    return paletTypes.values;
-  }
-  return [];
+  return paletTypes;
 }
 
 

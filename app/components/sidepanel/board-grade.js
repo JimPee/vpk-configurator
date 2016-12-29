@@ -1,6 +1,7 @@
+import Select from 'react-select';
 import React, { Component, PropTypes } from 'react';
 import featureStyle from './feature-style.css';
-import Select from 'react-select';
+import CharSelect from '../dropdowns/char-select';
 
 class BoardGrade extends Component {
   constructor() {
@@ -16,22 +17,22 @@ class BoardGrade extends Component {
   }
 
   render() {
-    const { boardGradeValues } = this.props;
+    const { boardGradeValues, checkDropdowns, updateValue } = this.props;
+    if (!boardGradeValues) {
+      return null;
+    }
     return (
-			<div className={featureStyle.feature}>
+      <div className={featureStyle.feature}>
 				<div className={featureStyle.featureHeader}>
 					Board Grade
 				</div>
 				<div className={featureStyle.featureBody}>
-					<Select
-            name="form-field-name"
-            placeholder="Board grade"
-            labelKey="desc"
-            valueKey="value"
-            value={this.state.boardGrade}
-            options={boardGradeValues}
-            onChange={ this.boardGradeChange }
-					/>
+					<CharSelect
+            key={boardGradeValues.char}
+            char={boardGradeValues}
+            checkDropdowns={checkDropdowns}
+            updateValue={updateValue}
+          />
 				</div>
       </div>
     );

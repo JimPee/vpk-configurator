@@ -21,7 +21,7 @@ MessagesContainer.propTypes = {
 
 const mapStateToProps = (state) => ({
   checkMessages: getCheckMessages(state),
-  loading: state.selections.loading,
+  loading: state.dropdowns.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

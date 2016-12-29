@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import featureStyle from './feature-style.css';
 import Select from 'react-select';
+import featureStyle from './feature-style.css';
+import CharSelect from '../dropdowns/char-select';
 
 class PaletType extends Component {
 
@@ -17,21 +18,21 @@ class PaletType extends Component {
   }
 
   render() {
-    const { paletTypes } = this.props;
+    const { paletTypes, checkDropdowns, updateValue } = this.props;
+    if (!paletTypes) {
+      return null;
+    }
     return (
 			<div className={featureStyle.feature}>
 				<div className={featureStyle.featureHeader}>
 					PaletType
 				</div>
 				<div className={featureStyle.featureBody}>
-					<Select
-            name="form-field-name"
-            placeholder="Palet type"
-            labelKey="desc"
-            valueKey="value"
-            value={this.state.paletType}
-            options={paletTypes}
-            onChange={ this.paletTypeChange }
+					<CharSelect
+						key={paletTypes.char}
+						char={paletTypes}
+						checkDropdowns={checkDropdowns}
+						updateValue={updateValue}
 					/>
 				</div>
 			</div>

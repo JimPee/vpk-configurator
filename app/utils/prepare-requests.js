@@ -1,4 +1,4 @@
-export function prepareSelectionsForRequest(values) {
+export function prepareDropdownsForRequest(values) {
   const returnValue = [];
   values.forEach(value => {
     let input = value.value;

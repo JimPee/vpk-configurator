@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/action-types';
 import { CALL_API } from '../middleware/api';
-import { prepareSelectionsForRequest } from '../utils/prepare-requests';
+import { prepareDropdownsForRequest } from '../utils/prepare-requests';
 
 function _orderSimulate(body) {
   const endpoint = 'zvc_sim_ord';
@@ -23,8 +23,8 @@ function _orderSimulate(body) {
 
 export function orderSimulate() {
   return (dispatch, getState) => {
-    const values = getState().selections.selections;
-    const body = prepareSelectionsForRequest(values);
+    const values = getState().dropdowns.dropdowns;
+    const body = prepareDropdownsForRequest(values);
     return dispatch(_orderSimulate(body));
   };
 }
@@ -51,8 +51,8 @@ function _orderCreate(body) {
 
 export function orderCreate() {
   return (dispatch, getState) => {
-    const values = getState().selections.selections;
-    const body = prepareSelectionsForRequest(values);
+    const values = getState().dropdowns.dropdowns;
+    const body = prepareDropdownsForRequest(values);
     return dispatch(_orderCreate(body));
   };
 }
