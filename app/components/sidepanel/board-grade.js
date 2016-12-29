@@ -25,7 +25,7 @@ class BoardGrade extends Component {
 				<div className={featureStyle.featureBody}>
 					<Select
             name="form-field-name"
-            placeholder="Board type"
+            placeholder="Board grade"
             labelKey="desc"
             valueKey="value"
             value={this.state.boardGrade}

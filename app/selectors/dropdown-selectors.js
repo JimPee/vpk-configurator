@@ -8,11 +8,21 @@ function getAllDropdowns(state) {
 }
 
 export function getBoardGradeValues(values) {
-  const boardgrade = values.find((values) => {
+  const boardgrades = values.find((values) => {
     return values.char === 'GRADE_BOARD';
   });
-  if (!!boardgrade) {
-    return boardgrade.values;
+  if (!!boardgrades) {
+    return boardgrades.values;
+  }
+  return [];
+}
+
+export function getPaletTypes(values) {
+  const paletTypes = values.find((values) => {
+    return values.char === 'PA_PALLET_TYPE';
+  });
+  if (!!paletTypes) {
+    return paletTypes.values;
   }
   return [];
 }
