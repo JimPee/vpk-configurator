@@ -3,7 +3,6 @@ export function getDropdown(state, id) {
 }
 
 function getAllDropdowns(state) {
-  // state - reducer - attribute on reducer containing elements
   return state.dropdowns.dropdowns;
 }
 

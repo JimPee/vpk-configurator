@@ -3,6 +3,12 @@ import styles from './main-panel.css';
 
 const MainPanel = (props) => {
   const { boxHasScores, actions } = props;
+
+  const handleSetBoxHasScores = (isScored) => {
+    actions.setBoxHasScores(isScored);
+    actions.checkDropdowns();
+  };
+
   return (
 		<div>
 			<div className="row">
@@ -12,11 +18,11 @@ const MainPanel = (props) => {
 				<div className="col-md-6">
           <button
 						className={styles.scoreBtn + ' ' + (boxHasScores && styles.selected)}
-						onClick={actions.setBoxHasScores.bind(this, true)}>
+						onClick={handleSetBoxHasScores.bind(this, true)}>
 						Scored</button>
 					<button
 						className={styles.scoreBtn + ' ' + (!boxHasScores && styles.selected)}
-						onClick={actions.setBoxHasScores.bind(this, false)}>
+						onClick={handleSetBoxHasScores.bind(this, false)}>
 						Not Scored</button>
 				</div>
 				<div className="col-md-3">

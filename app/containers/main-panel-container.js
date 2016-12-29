@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MainPanel from '../components/main-panel/main-panel';
-import { setBoxHasScores } from '../actions/dropdown-actions'
+import { setBoxHasScores, checkDropdowns } from '../actions/dropdown-actions'
 
 class MainPanelContainer extends Component {
 
@@ -26,6 +26,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators({
     setBoxHasScores,
+    checkDropdowns,
   }, dispatch)
 });
 

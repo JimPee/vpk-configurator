@@ -2,13 +2,6 @@ import * as actionTypes from '../actions/action-types';
 import { CALL_API } from '../middleware/api';
 import { prepareDropdownsForRequest } from '../utils/prepare-requests';
 
-export function setBoxHasScores(hasScores) {
-  return {
-    type: actionTypes.SELECT_HAS_SCORES,
-    payload: { hasScores },
-  };
-}
-
 export function setBoxScores(scores) {
   return {
     type: actionTypes.SET_BOX_SCORES,
@@ -76,5 +69,14 @@ export function updateValue(id, newValue) {
       id,
       newValue,
     },
+  };
+}
+
+export function setBoxHasScores(hasScores) {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.SELECT_HAS_SCORES,
+      payload: { hasScores },
+    });
   };
 }

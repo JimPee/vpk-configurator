@@ -42,36 +42,6 @@ function dropdowns(state = initialState.dropdowns, action) {
     case actionTypes.CHECK_DROPDOWNS_REQUEST:
       return state;
     case actionTypes.CHECK_DROPDOWNS_SUCCESS:
-    /*
-      return state.map(value => {
-        const values = value.values;
-        let match;
-        action.payload.values.forEach(current => {
-          if (current.char === value.char) {
-            match = current;
-          }
-        });
-        // check each value to check if it still has to be showed
-        for (let i = 0; i < values.length; i++) {
-          const currentVal = values[i];
-          let checker;
-          match.values.forEach(pos => {
-            if (pos.value === currentVal.value) {
-              checker = pos;
-            }
-          });
-          if (checker === undefined) {
-            currentVal.hide = true;
-          } else {
-            currentVal.hide = false;
-          }
-        }
-        return Object.assign(value, {
-          default_val: match.default_val,
-          values,
-        });
-      });
-      */
       return action.payload.values.map((dropdown) => {
         let result = dropdown;
         if (result.format === 'NUM' && !result.list && dropdown.default_val.length !== 0) {
@@ -90,6 +60,15 @@ function dropdowns(state = initialState.dropdowns, action) {
           });
         }
         return result;
+      });
+    case actionTypes.SELECT_HAS_SCORES:
+      return state.map((dropdown) => {
+        if (dropdown.char === 'FEFCO_SHEET') {
+          return Object.assign({}, dropdown, {
+            value: action.payload.hasScores ? dropdown.values[1].value : dropdown.values[0].value,
+          });
+        }
+        return dropdown;
       });
     default:
       return state;
