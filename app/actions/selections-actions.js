@@ -9,6 +9,20 @@ export function setBoxHasScores(hasScores) {
   };
 }
 
+export function setBoxScores(scores) {
+  return {
+    type: actionTypes.SET_BOX_SCORES,
+    payload: { scores },
+  };
+}
+
+export function setFefcosheet(fefcosheet) {
+  return {
+    type: actionTypes.SET__BOX_FEFCOSHEET,
+    payload: { fefcosheet },
+  };
+}
+
 // get initial data
 export function getAllSelections() {
   const endpoint = 'zvc_get_vals';

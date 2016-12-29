@@ -4,6 +4,8 @@ import _ from 'lodash';
 
 const initialState = {
   hasScores: true,
+  scores: [],
+  fefcoSheet: '800',
 };
 
 function hasScores(state = initialState.hasScores, action) {
@@ -15,6 +17,26 @@ function hasScores(state = initialState.hasScores, action) {
   }
 }
 
+function scores(state = initialState.scores, action) {
+  switch (action.type) {
+    case actionTypes.SET_BOX_SCORES:
+      return action.payload.scores;
+    default:
+      return state;
+  }
+}
+
+function fefcosheet(state = initialState.fefcoSheet, action) {
+  switch (action.type) {
+    case actionTypes.SET__BOX_FEFCOSHEET:
+      return action.payload.fefcosheet;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   hasScores,
+  scores,
+  fefcosheet,
 });

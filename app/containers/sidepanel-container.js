@@ -9,7 +9,8 @@ class SidepanelContainer extends Component {
       <div>
         <Sidepanel boxHasScores={this.props.boxHasScores}
                    boardGradeValues={this.props.boardGradeValues}
-                   paletTypes={this.props.paletTypes}/>
+                   paletTypes={this.props.paletTypes}
+                   {...this.props}/>
       </div>
     );
   }
@@ -27,4 +28,11 @@ const mapStateToProps = (state) => ({
   paletTypes: getPaletTypes(state.selections.selections),
 });
 
-export default connect(mapStateToProps)(SidepanelContainer);
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators({
+    setBoxScores,
+    setFefcosheet,
+  }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SidepanelContainer);

@@ -43,36 +43,6 @@ function selections(state = initialState.selections, action) {
     case actionTypes.CHECK_SELECTIONS_REQUEST:
       return state;
     case actionTypes.CHECK_SELECTIONS_SUCCESS:
-    /*
-      return state.map(value => {
-        const values = value.values;
-        let match;
-        action.payload.values.forEach(current => {
-          if (current.char === value.char) {
-            match = current;
-          }
-        });
-        // check each value to check if it still has to be showed
-        for (let i = 0; i < values.length; i++) {
-          const currentVal = values[i];
-          let checker;
-          match.values.forEach(pos => {
-            if (pos.value === currentVal.value) {
-              checker = pos;
-            }
-          });
-          if (checker === undefined) {
-            currentVal.hide = true;
-          } else {
-            currentVal.hide = false;
-          }
-        }
-        return Object.assign(value, {
-          default_val: match.default_val,
-          values,
-        });
-      });
-      */
       return action.payload.values.map((selection) => {
         let result = selection;
         if (result.format === 'NUM' && !result.list && selection.default_val.length !== 0) {
