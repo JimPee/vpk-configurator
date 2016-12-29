@@ -38,3 +38,20 @@
 .container {
   margin: 5px;
 }
+
+.featureHeader {
+  background-color: lightblue;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+.featureBody {
+  border: 1px solid black;
+  border-top: none;
+  padding: 5px;
+}
+
+.feature {
+  margin-bottom: 15px;
+}

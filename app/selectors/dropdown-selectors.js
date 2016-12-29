@@ -21,6 +21,20 @@ export function getPaletTypes(values) {
   return paletTypes;
 }
 
+export function getWidth(values) {
+  const width = values.find((values) => {
+    return values.char === 'SHEET_WIDTH_NET';
+  });
+  return width;
+}
+
+export function getLength(values) {
+  const length = values.find((values) => {
+    return values.char === 'SHEET_LENGTH_NET';
+  });
+  return length;
+}
+
 
 export function getDropdowns(state) {
   return getAllDropdowns(state);

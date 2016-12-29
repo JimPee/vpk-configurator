@@ -23,18 +23,13 @@ class PaletType extends Component {
       return null;
     }
     return (
-			<div className={featureStyle.feature}>
-				<div className={featureStyle.featureHeader}>
-					PaletType
-				</div>
-				<div className={featureStyle.featureBody}>
-					<CharSelect
-						key={paletTypes.char}
-						char={paletTypes}
-						checkDropdowns={checkDropdowns}
-						updateValue={updateValue}
-					/>
-				</div>
+			<div>
+				<CharSelect
+					key={paletTypes.char}
+					char={paletTypes}
+					checkDropdowns={checkDropdowns}
+					updateValue={updateValue}
+				/>
 			</div>
     );
   }

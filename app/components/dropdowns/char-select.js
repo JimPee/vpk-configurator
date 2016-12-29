@@ -100,18 +100,19 @@ class CharSelect extends Component {
 
   render() {
     return (
-      <div className={styles.container}>
-        <label className={this.hasError(this.props.char) ? styles.errorLabel : styles.label}>{this.props.char.char_desc}</label>
-        {
-          this.isMultiList(this.props.char) && <div>You can select multiple values.</div>
-        }
-        <div className={this.hasError(this.props.char) ? styles.errorSelect : styles.select}>
-          <Select
-            options={this.getOptions(this.props.char)}
-            onChange={this.handleChange}
-            value={this.state.value}
-            multi={this.isMultiList(this.props.char)}
-            disabled={this.isDisabled(this.props.char)} />
+      <div className={styles.feature}>
+        <div className={styles.featureHeader}>
+          {this.props.char.char_desc}
+        </div>
+        <div className={styles.featureBody}>
+            <div className={this.hasError(this.props.char) ? styles.errorSelect : styles.select}>
+              <Select
+                options={this.getOptions(this.props.char)}
+                onChange={this.handleChange}
+                value={this.state.value}
+                multi={this.isMultiList(this.props.char)}
+                disabled={this.isDisabled(this.props.char)} />
+            </div>
         </div>
       </div>
     );

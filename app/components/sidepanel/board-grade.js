@@ -1,6 +1,4 @@
-import Select from 'react-select';
 import React, { Component, PropTypes } from 'react';
-import featureStyle from './feature-style.css';
 import CharSelect from '../dropdowns/char-select';
 
 class BoardGrade extends Component {
@@ -22,21 +20,22 @@ class BoardGrade extends Component {
       return null;
     }
     return (
-      <div className={featureStyle.feature}>
-				<div className={featureStyle.featureHeader}>
-					Board Grade
-				</div>
-				<div className={featureStyle.featureBody}>
-					<CharSelect
-            key={boardGradeValues.char}
-            char={boardGradeValues}
-            checkDropdowns={checkDropdowns}
-            updateValue={updateValue}
-          />
-				</div>
+      <div>
+				<CharSelect
+          key={boardGradeValues.char}
+          char={boardGradeValues}
+          checkDropdowns={checkDropdowns}
+          updateValue={updateValue}
+        />
       </div>
     );
   }
 }
+
+BoardGrade.propTypes = {
+  checkDropdowns: PropTypes.func,
+  updateValue: PropTypes.func,
+  boardGradeValues: PropTypes.object,
+};
 
 export default BoardGrade;

@@ -86,20 +86,22 @@ class CharInput extends Component {
   // TODO add validation, check length and decimals
   render() {
     return (
-      <div className={styles.container}>
-        <label className={this.hasError(this.props.char) ? styles.errorLabel : styles.label}>
+      <div className={styles.feature}>
+        <div className={styles.featureHeader}>
           {this.props.char.char_desc}
-        </label>
-        <input
-          disabled={this.isDisabled()}
-          className={this.hasError(this.props.char) ? styles.errorInput : styles.input}
-          type={this.getType(this.props.char.format)}
-          value={this.state.value}
-          onBlur={(event) => { this.handleBlur(event); }}
-          onChange={this.handleChange}
-          onKeyPress={(event) => { this.handleKeyPress(event); }}
-          placeholder={this.getPlaceholder(this.props.char.format)}
-        />
+        </div>
+        <div className={styles.featureBody}>
+          <input
+            disabled={this.isDisabled()}
+            className={this.hasError(this.props.char) ? styles.errorInput : styles.input}
+            type={this.getType(this.props.char.format)}
+            value={this.state.value}
+            onBlur={(event) => { this.handleBlur(event); }}
+            onChange={this.handleChange}
+            onKeyPress={(event) => { this.handleKeyPress(event); }}
+            placeholder={this.getPlaceholder(this.props.char.format)}
+          />
+        </div>
       </div>
     );
   }

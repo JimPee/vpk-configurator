@@ -5,7 +5,7 @@ import Dimensions from './dimensions';
 import PaletType from './palet-type';
 
 const Sidepanel = (props) => {
-  const { boxHasScores, boardGradeValues, paletTypes, actions } = props;
+  const { boxHasScores, boardGradeValues, paletTypes, width, actions, length } = props;
   const setBoxScores = actions.setBoxScores;
   const setFefcoSheet = actions.setFefcoSheet;
   const checkDropdowns = actions.checkDropdowns;
@@ -16,7 +16,10 @@ const Sidepanel = (props) => {
 									checkDropdowns={checkDropdowns}
 									updateValue={updateValue}/>
 			{ boxHasScores && <Scores setBoxScores={setBoxScores} setFefcoSheet={setFefcoSheet} /> }
-			<Dimensions />
+			<Dimensions width={width}
+                  length={length}
+                  checkDropdowns={checkDropdowns}
+                  updateValue={updateValue}/>
 			<PaletType paletTypes={paletTypes}
                  checkDropdowns={checkDropdowns}
                  updateValue={updateValue} />
@@ -29,6 +32,8 @@ Sidepanel.propTypes = {
   boardGradeValues: PropTypes.object,
   paletTypes: PropTypes.object,
   actions: PropTypes.object.isRequired,
+  width: PropTypes.object,
+  length: PropTypes.object,
 };
 
 export default Sidepanel;

@@ -1,32 +1,36 @@
 import React, { Component, PropTypes } from 'react';
-import featureStyle from './feature-style.css';
+import CharInput from '../dropdowns/char-input';
 
 class Dimensions extends Component {
-
-  constructor() {
-    super();
-  }
-
-  componentDidMount() {
-  }
-
   render() {
-    //const { } = this.props;
+    const { width, length, checkDropdowns, updateValue } = this.props;
+    if (!width || !length) {
+      return null;
+    }
     return (
-			<div className={featureStyle.feature}>
-				<div className={featureStyle.featureHeader}>
-					Dimensions
-				</div>
-				<div className={featureStyle.featureBody}>
-					dimensions
-				</div>
+			<div>
+        <CharInput
+          key={width.char}
+          char={width}
+          checkDropdowns={checkDropdowns}
+          updateValue={updateValue}
+        />
+        <CharInput
+            key={length.char}
+            char={length}
+            checkDropdowns={checkDropdowns}
+            updateValue={updateValue}
+          />
 			</div>
     );
   }
 }
 
 Dimensions.propTypes = {
-
+  checkDropdowns: PropTypes.func,
+  updateValue: PropTypes.func,
+  width: PropTypes.object,
+  length: PropTypes.object,
 };
 
 export default Dimensions;
