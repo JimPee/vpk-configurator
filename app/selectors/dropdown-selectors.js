@@ -22,7 +22,7 @@ export function getPaletTypes(values) {
 
 export function getWidth(values) {
   const width = values.find((values) => {
-    return values.char === 'SHEET_WIDTH_NET';
+    return values.char === 'SHEET_WIDTH_X';
   });
   return width;
 }

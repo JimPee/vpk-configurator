@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Sidepanel from '../components/sidepanel/sidepanel';
+import DropdownsContainer from './dropdowns-container';
 import { getBoardGradeValues, getPaletTypes, getWidth, getLength } from '../selectors/dropdown-selectors';
 import { setBoxScores, setFefcosheet, checkDropdowns, updateValue } from '../actions/dropdown-actions';
 
@@ -9,12 +9,7 @@ class SidepanelContainer extends Component {
   render() {
     return (
       <div>
-        <Sidepanel boxHasScores={this.props.boxHasScores}
-                   boardGradeValues={this.props.boardGradeValues}
-                   paletTypes={this.props.paletTypes}
-                   width={this.props.width}
-                   length={this.props.length}
-                   {...this.props}/>
+        <DropdownsContainer />
       </div>
     );
   }

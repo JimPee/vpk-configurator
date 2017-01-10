@@ -17,12 +17,12 @@
 .input {
   text-align: center;
   display: block;
-  width: 235px;
   border-radius: 4px;
   border: 1px solid lightGray;
   padding: 5px;
   font-size: 15px;
   height: 25px;
+  width: 100%;
 }
 
 .input:disabled {

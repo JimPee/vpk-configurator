@@ -8,22 +8,26 @@ const Order = (props) => {
     showSimulate, showCreate } = props;
 
   return (
-    <div className={styles.container}>
-    {
-      showSimulate === true ?
-      <SimulatePanel
-        messages={simulateMessages}
-        orderSimulate={actions.orderSimulate}
-        feedback={feedback} /> :
-        ''
-    }
-    {
-      showCreate === true ?
-      <CreatePanel
-        messages={createMessages}
-        orderCreate={actions.orderCreate} /> :
-        ''
-    }
+    <div className='row'>
+      <div className='col-md-3'>
+        {
+          showSimulate === true ?
+          <SimulatePanel
+            messages={simulateMessages}
+            orderSimulate={actions.orderSimulate}
+            feedback={feedback} /> :
+            ''
+        }
+      </div>
+      <div className='col-md-3 col-md-offset-6'>
+        {
+          showCreate === true ?
+          <CreatePanel
+            messages={createMessages}
+            orderCreate={actions.orderCreate} /> :
+            ''
+        }
+      </div>
     </div>
   );
 };

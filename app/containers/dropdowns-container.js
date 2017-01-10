@@ -5,7 +5,6 @@ import { getAllDropdowns, checkDropdowns, updateValue } from '../actions/dropdow
 import { getDropdowns } from '../selectors/dropdown-selectors';
 import { getCheckMessages } from '../selectors/message-selectors';
 import Dropdowns from '../components/dropdowns/dropdowns';
-import Messages from '../components/messages/messages';
 
 class DropdownsContainer extends Component {
 

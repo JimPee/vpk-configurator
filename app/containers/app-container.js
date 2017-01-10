@@ -1,57 +1,40 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import styles from './app-container.css';
 import Header from './header';
-import { getAllDropdowns, checkDropdowns, updateValue } from '../actions/dropdown-actions';
-import { getCheckMessages } from '../selectors/message-selectors';
-import MainPanelContainer from './main-panel-container';
 import OverviewContainer from './overview-container';
 import PreviewContainer from './preview-container';
-import SidepanelContainer from './sidepanel-container';
+import DropdownsContainer from './dropdowns-container';
+import OrderContainer from './order-container';
 import 'bootstrap-grid/dist/grid.min.css';
-import 'react-select/dist/react-select.css';
+import './app-container.css';
 
 class AppContainer extends Component {
-  componentDidMount() {
-    this.props.actions.getAllDropdowns();
-  }
   render() {
     return (
       <div className='container'>
-        <Header />
-					<div className="row">
-						<div className='col-md-12'>
-							<MainPanelContainer />
-						</div>
+        <div className='row'>
+          <div className='col-md-12'>
+            <Header />
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-md-12'>
+						<OrderContainer />
 					</div>
-					<div className='row'>
-						<div className='col-md-3'>
-							<OverviewContainer />
-						</div>
-						<div className='col-md-6'>
-							<PreviewContainer />
-						</div>
-						<div className='col-md-3'>
-							<SidepanelContainer />
-						</div>
+        </div>
+				<div className='row'>
+					<div className='col-md-3'>
+						<OverviewContainer />
 					</div>
+					<div className='col-md-6'>
+						<PreviewContainer />
+					</div>
+					<div className='col-md-3'>
+						<DropdownsContainer />
+					</div>
+				</div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  checkMessages: getCheckMessages(state),
-  loading: state.dropdowns.loading,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators({
-    getAllDropdowns,
-    checkDropdowns,
-    updateValue,
-  }, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default AppContainer;

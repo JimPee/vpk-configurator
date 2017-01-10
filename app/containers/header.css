@@ -1,5 +1,4 @@
 .container {
-  width: 100%;
   color: #4ca0ff;
   border-bottom: 3px solid #4ca0ff;
   margin-top: 0;
@@ -37,5 +36,5 @@
 }
 
 .image {
-  height: 50px;
+  height: 40px;
 }

@@ -33,7 +33,8 @@ class Overview extends Component {
   }
 
   render() {
-    const { values } = this.props;
+    const values = this.props.dropdowns;
+
     return (
       <div className={styles.overview}>
         <div className={styles.overviewHeader}>
@@ -43,7 +44,7 @@ class Overview extends Component {
           {
             values.map((value, idx) => {
               return (
-                value && <div key={idx}> { value.char_desc}: {this.getCorrectValue(value) ? this.getCorrectValue(value) : 'none' }</div>
+                value && <div key={idx}> { value.char_desc}: {this.getCorrectValue(value) ? this.getCorrectValue(value) : '' }</div>
               );
             })
           }
@@ -54,7 +55,7 @@ class Overview extends Component {
 }
 
 Overview.propTypes = {
-  values: PropTypes.array,
+  dropdowns: PropTypes.array,
 };
 
 export default Overview;
