@@ -4,6 +4,9 @@ import OverviewContainer from './overview-container';
 import PreviewContainer from './preview-container';
 import DropdownsContainer from './dropdowns-container';
 import OrderContainer from './order-container';
+import MessagesContainer from './messages-container';
+import { getCheckMessages } from '../selectors/message-selectors';
+import { connect } from 'react-redux';
 import 'bootstrap-grid/dist/grid.min.css';
 import './app-container.css';
 
@@ -11,6 +14,7 @@ class AppContainer extends Component {
   render() {
     return (
       <div className='container'>
+        <MessagesContainer />
         <div className='row'>
           <div className='col-md-12'>
             <Header />
@@ -37,4 +41,8 @@ class AppContainer extends Component {
   }
 }
 
-export default AppContainer;
+const mapStateToProps = (state) => ({
+  checkMessages: getCheckMessages(state),
+});
+
+export default connect(mapStateToProps)(AppContainer);

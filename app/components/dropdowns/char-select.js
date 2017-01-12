@@ -99,9 +99,17 @@ class CharSelect extends Component {
   }
 
   render() {
+    const headerStyle = {
+      backgroundColor: '#979797',
+    };
+
+    if (this.props.char.default_val.length) {
+      headerStyle.backgroundColor = '#005fab';
+    }
+
     return (
       <div className={styles.feature}>
-        <div className={styles.featureHeader}>
+        <div className={styles.featureHeader} style={ headerStyle }>
           {this.props.char.char_desc}
         </div>
         <div className={styles.featureBody}>

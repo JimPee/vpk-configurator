@@ -40,18 +40,18 @@
 }
 
 .featureHeader {
-  background-color: lightblue;
+  background-color: #979797;
   color: white;
+  padding: 10px;
   text-align: center;
-  padding: 5px;
 }
 
 .featureBody {
-  border: 1px solid black;
   border-top: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 .feature {
   margin-bottom: 15px;
+	box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
 }
