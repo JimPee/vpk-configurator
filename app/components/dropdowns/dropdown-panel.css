@@ -17,6 +17,7 @@
 }
 
 .panel > div {
-  margin: 5px;
-  width: 250px;
+  width: 48%;
+  margin: 1%;
+  float: left;
 }

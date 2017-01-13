@@ -17,11 +17,10 @@
 .input {
   text-align: center;
   display: block;
-  border-radius: 4px;
   border: 1px solid lightGray;
   padding: 5px;
   font-size: 15px;
-  height: 25px;
+  height: 36px;
   width: 100%;
 }
 
@@ -32,7 +31,7 @@
 
 .errorInput {
   composes: input;
-  border: 1px solid red;
+  border: 1px solid #e43e2d;
 }
 
 .container {

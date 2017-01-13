@@ -4,9 +4,12 @@
   color: white;
   background-color: #009a00;
   padding: 10px 15px;
-  border-radius: 8px;
-  margin: 5px auto;
-  font-size: 15px;
+  margin: 0 0 15px 0;
   border: none;
   outline: none;
+  transition: background-color 0.5s;
+}
+
+.trigger:hover {
+  background-color: #05c105;
 }

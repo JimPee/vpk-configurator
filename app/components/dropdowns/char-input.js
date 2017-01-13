@@ -89,13 +89,13 @@ class CharInput extends Component {
       backgroundColor: '#979797',
     };
 
-    if (this.props.char.default_val.length) {
+    if (!!this.props.char.value) {
       headerStyle.backgroundColor = '#005fab';
     }
 
     return (
       <div className={styles.feature}>
-        <div className={styles.featureHeader} style={{ headerStyle }}>
+        <div className={styles.featureHeader} style={ headerStyle }>
           {this.props.char.char_desc}
         </div>
         <div className={styles.featureBody}>

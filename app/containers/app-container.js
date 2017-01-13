@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import MessagesContainer from './messages-container';
+import { getCheckMessages } from '../selectors/message-selectors';
+import 'bootstrap-grid/dist/grid.min.css';
+import './app-container.css';
 import Header from './header';
 import OverviewContainer from './overview-container';
 import PreviewContainer from './preview-container';
 import DropdownsContainer from './dropdowns-container';
 import OrderContainer from './order-container';
-import MessagesContainer from './messages-container';
-import { getCheckMessages } from '../selectors/message-selectors';
-import { connect } from 'react-redux';
-import 'bootstrap-grid/dist/grid.min.css';
-import './app-container.css';
 
 class AppContainer extends Component {
   render() {
     return (
       <div className='container'>
-        <MessagesContainer />
         <div className='row'>
           <div className='col-md-12'>
             <Header />
@@ -28,11 +27,12 @@ class AppContainer extends Component {
 				<div className='row'>
 					<div className='col-md-3'>
 						<OverviewContainer />
+            <MessagesContainer />
 					</div>
-					<div className='col-md-6'>
+					<div className='col-md-4'>
 						<PreviewContainer />
 					</div>
-					<div className='col-md-3'>
+					<div className='col-md-5'>
 						<DropdownsContainer />
 					</div>
 				</div>

@@ -4,7 +4,7 @@ import styles from './simulate-feedback.css';
 const SimulateFeedback = (props) => {
   const { rate } = props;
   return (
-    <p className={styles.feedback}>{rate}</p>
+    <p className={styles.feedback}>Feedback: {rate}</p>
   );
 };
 

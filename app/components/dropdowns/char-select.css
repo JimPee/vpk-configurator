@@ -18,6 +18,10 @@
   margin: 0;
 }
 
+.select div div {
+  border-radius: 0;
+}
+
 .select:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -28,7 +32,7 @@
 }
 
 .errorSelect div {
-  border-color: red;
+  border-color: #e43e2d;
 }
 
 .select span > span {

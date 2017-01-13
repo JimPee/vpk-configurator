@@ -1,10 +1,17 @@
 import React, { PropTypes } from 'react';
-import { notify } from 'react-notify-toast';
+import MessageBody from './message-body';
 
 const MessagePanel = (props) => {
   const { messages } = props;
   return (
     <div>
+      {
+        messages.map(message => {
+          return <div key={message.message}>
+            <MessageBody message={message} />
+          </div>;
+        })
+      }
     </div>
   );
 };
