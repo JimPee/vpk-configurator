@@ -1,17 +1,10 @@
 import React, { PropTypes } from 'react';
 import DevTools from './dev-tools';
-
-const injectDevTools = () => {
-  if (__DEV__ && !window.devToolsExtension) {
-    // return <DevTools />;
-  }
-  return null;
-};
+import styles from '../assets/css/global.css';
 
 const App = (props) => (
-  <div>
+  <div className={styles.app}>
     { props.children }
-  // { injectDevTools() }
   </div>
 );
 
