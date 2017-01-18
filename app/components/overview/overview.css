@@ -8,6 +8,8 @@
 .overviewBody  {
   border-top: none;
   padding: 10px;
+  background-color: #222222;
+  color: #7f8c8d;
 }
 
 .overview {

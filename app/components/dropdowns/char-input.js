@@ -101,11 +101,12 @@ class CharInput extends Component {
     const { isOpen } = this.state;
 
     const headerStyle = {
-      backgroundColor: '#979797',
+      backgroundColor: '#222222',
     };
 
     if (!!this.props.char.value) {
       headerStyle.backgroundColor = '#005fab';
+      headerStyle.color = 'white';
     }
 
     return (

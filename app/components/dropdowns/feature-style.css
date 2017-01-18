@@ -1,8 +1,8 @@
 .featureHeader {
-  background-color: #979797;
-  color: white;
+  background-color: #222222;
   padding: 10px;
   text-align: center;
+  color: #7f8c8d;
 }
 
 .featureHeader i {
@@ -17,11 +17,13 @@
   border-top: none;
   padding: 10px;
   transition: height, padding 0.5s;
+  background-color: #222222;
 }
 
 .feature {
-	box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+	/*box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);*/
   width: 100%;
   margin: 0 0 5px;
   float: left;
+  color: #333;
 }

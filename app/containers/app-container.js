@@ -12,7 +12,6 @@ import OverviewContainer from './overview-container';
 import PreviewContainer from './preview-container';
 import DropdownsContainer from './dropdowns-container';
 import OrderContainer from './order-container';
-import CustomToasterTemplate from '../components/messages/customToasterTemplate';
 
 class AppContainer extends Component {
   render() {
