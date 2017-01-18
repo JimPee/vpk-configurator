@@ -20,7 +20,7 @@
 }
 
 .feature {
-	/*box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);*/
+	box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
   width: 100%;
   margin: 0 0 5px;
   float: left;
