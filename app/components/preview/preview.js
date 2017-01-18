@@ -1,12 +1,16 @@
-import React, { PropTypes } from 'react';
-import styles from './preview.css';
+import React, { Component } from 'react';
+import { init } from './object-renderer';
 
-const Preview = () => {
-  return (
-    <div>
-			<div className={styles.previewImg}></div>
-    </div>
-  );
-};
+class Preview extends Component {
+  componentDidMount() {
+    init('../../3D-models/Cardboard box.obj', '../../3D-models/Cardboard box.mtl');
+  }
+  render() {
+    return (
+      <div id="preview">
+      </div>
+    );
+  }
+}
 
 export default Preview;
