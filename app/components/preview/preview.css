@@ -1,7 +1,7 @@
 .previewImg {
-  background-image: url('https://openclipart.org/image/2400px/svg_to_png/231068/3D-Isometric-Cardboard-Box.png');
+  background-image: url('../../assets/img/box.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 410px;
+  height: 345px;
 }
