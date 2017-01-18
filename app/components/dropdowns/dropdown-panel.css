@@ -15,9 +15,3 @@
   -webkit-align-content: flex-end;
   align-content: flex-end;
 }
-
-.panel > div {
-  width: 48%;
-  margin: 1%;
-  float: left;
-}

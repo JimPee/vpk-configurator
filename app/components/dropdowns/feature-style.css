@@ -1,0 +1,27 @@
+.featureHeader {
+  background-color: #979797;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.featureHeader i {
+  float: right;
+}
+
+.featureHeader i:hover {
+  cursor: pointer;
+}
+
+.featureBody {
+  border-top: none;
+  padding: 10px;
+  transition: height, padding 0.5s;
+}
+
+.feature {
+	/*box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);*/
+  width: 100%;
+  margin: 0 0 5px;
+  float: left;
+}

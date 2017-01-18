@@ -1,14 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import Select from 'react-select';
 import styles from './char-select.css';
+import featureStyles from './feature-style.css';
 
 class CharSelect extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.getCorrectValue = this.getCorrectValue.bind(this);
+    this.toggleBody = this.toggleBody.bind(this);
     this.state = {
       value: this.getCorrectValue(props.char),
+      isOpen: false,
     };
   }
 
@@ -98,7 +101,19 @@ class CharSelect extends Component {
     });
   }
 
+  toggleBody() {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+
   render() {
+    const toggled = {
+      height: '0',
+      padding: '0',
+      overflow: 'hidden',
+    };
+
+    const { isOpen } = this.state;
+
     const headerStyle = {
       backgroundColor: '#979797',
     };
@@ -108,11 +123,16 @@ class CharSelect extends Component {
     }
 
     return (
-      <div className={styles.feature}>
-        <div className={styles.featureHeader} style={ headerStyle }>
+      <div className={featureStyles.feature}>
+        <div className={featureStyles.featureHeader} style={ headerStyle }>
           {this.props.char.char_desc}
+          { isOpen || this.hasError(this.props.char) ?
+            <i onClick={this.toggleBody} className="fa fa-minus"></i>
+            :
+            <i onClick={this.toggleBody} className="fa fa-plus"></i>
+          }
         </div>
-        <div className={styles.featureBody}>
+        <div className={featureStyles.featureBody} style={ isOpen || this.hasError(this.props.char) ? {} : toggled }>
             <div className={this.hasError(this.props.char) ? styles.errorSelect : styles.select}>
               <Select
                 options={this.getOptions(this.props.char)}
