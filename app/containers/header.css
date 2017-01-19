@@ -2,3 +2,13 @@
   height: 40px;
   margin: 15px 0;
 }
+
+.header {
+  background-image: url('../assets/img/logo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 399px;
+  height: 78px;
+  margin: 10px 0;
+}

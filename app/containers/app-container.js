@@ -19,7 +19,7 @@ class AppContainer extends Component {
       <div className='container'>
         <Alert stack={{ limit: false, spacing: 10 }} />
         <div className='row'>
-          <div className='col-md-12'>
+          <div className='col-md-6'>
             <Header />
           </div>
         </div>
