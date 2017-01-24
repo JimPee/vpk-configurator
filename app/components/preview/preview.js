@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { init } from './object-renderer';
+import styles from './preview.css';
 
 class Preview extends Component {
   componentDidMount() {
-    init('../../3D-models/Cardboard box.obj', '../../3D-models/Cardboard box.mtl');
+    init();
   }
   render() {
     return (
-      <div id="preview">
+      <div id="preview" className={styles.preview}>
       </div>
     );
   }
