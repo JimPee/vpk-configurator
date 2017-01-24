@@ -41,6 +41,10 @@ module.exports = {
         loader: 'url-loader?limit=100000&mimetype=image/png&name=[path][name].[hash].[ext]',
       },
       {
+        test: /\.gif$/,
+        loader: 'url-loader?limit=100000',
+      },
+      {
         test: /\.jpg$/,
         loader: 'file-loader?name=[path][name].[hash].[ext]',
       },

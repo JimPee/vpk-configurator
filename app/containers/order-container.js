@@ -25,6 +25,7 @@ const mapStateToProps = (state) => ({
   feedback: getFeedback(state),
   showSimulate: getShowSimulate(state),
   showCreate: getShowCreate(state),
+  simulateIsLoading: state.order.simulateIsLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

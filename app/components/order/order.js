@@ -6,7 +6,7 @@ import SimulateFeedback from './simulate-feedback';
 
 const Order = (props) => {
   const { simulateMessages, createMessages, feedback, actions,
-    showSimulate, showCreate } = props;
+    showSimulate, showCreate, simulateIsLoading } = props;
 
   return (
     <div className='row'>
@@ -27,6 +27,7 @@ const Order = (props) => {
             feedback={feedback} /> :
             ''
         }
+        { simulateIsLoading && <div className={styles.loadingGif}/> }
         {
           feedback !== undefined && feedback.rate !== undefined && feedback.rate !== '' ?
           <SimulateFeedback rate={feedback.rate} /> :
@@ -44,6 +45,7 @@ Order.propTypes = {
   actions: PropTypes.object.isRequired,
   showSimulate: PropTypes.bool.isRequired,
   showCreate: PropTypes.bool.isRequired,
+  simulateIsLoading: PropTypes.bool.isRequired,
 };
 
 export default Order;

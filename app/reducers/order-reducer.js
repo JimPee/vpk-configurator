@@ -5,6 +5,7 @@ const initialState = {
   feedback: {},
   showSimulate: false,
   showCreate: false,
+  simulateIsLoading: false,
 };
 
 function feedback(state = initialState.feedback, action) {
@@ -15,6 +16,17 @@ function feedback(state = initialState.feedback, action) {
       return {};
     case actionTypes.SIMULATE_ORDER_SUCCESS:
       return action.payload.feedback;
+    default:
+      return state;
+  }
+}
+
+function simulateIsLoading(state = initialState.simulateIsLoading, action) {
+  switch (action.type) {
+    case actionTypes.SIMULATE_ORDER_REQUEST:
+      return true;
+    case actionTypes.SIMULATE_ORDER_SUCCESS:
+      return false;
     default:
       return state;
   }
@@ -49,5 +61,6 @@ function showCreate(state = initialState.showCreate, action) {
 export default combineReducers({
   feedback,
   showSimulate,
-  showCreate
+  showCreate,
+  simulateIsLoading,
 });
