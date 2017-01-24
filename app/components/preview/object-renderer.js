@@ -12,11 +12,25 @@ var windowHalfY = window.innerHeight / 2;
 var cameraMoveIntensity = 0.5;
 
 export function init() {
-  var container = document.getElementById('preview');
-  camera = new THREE.PerspectiveCamera( 70, 1, 1, 1000 );
-  camera.position.y = 130;
-  camera.position.z = 500;
+  // Get canvas
+  var canvas = document.getElementById('preview');
+
+  // Set Renderer
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setClearColor( 0xffffff );
+  renderer.setPixelRatio( 150 );
+  renderer.setSize( 500, 500 );
+
+  camera = new THREE.PerspectiveCamera( 70, 1, 200, 900 );
   scene = new THREE.Scene();
+
+  // Light
+  var light = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(light);
+
+  var light1 = new THREE.PointLight(0xffffff, 0.5);
+  scene.add(light1);
+
   // Cube
   var geometry = new THREE.BoxGeometry( 250, 30, 250 );
   for (var i = 0; i < geometry.faces.length; i += 2) {
@@ -31,45 +45,47 @@ export function init() {
       geometry.faces[i + 1].color.setHex(0xDFC298);
     }
   }
-  var material = new THREE.MeshBasicMaterial( { vertexColors: THREE.FaceColors, overdraw: 0.5 } );
+  var material = new THREE.MeshLambertMaterial( { vertexColors: THREE.FaceColors, overdraw: 0.5 } );
   cube = new THREE.Mesh( geometry, material );
   cube.castShadow = true;
-  cube.position.y = 150;
-
-  cube.rotation.z = -50;
-  cube.receiveShadow = false;
-  //cube.rotation.y = -50;
-
+  cube.rotation.x = 20 * (Math.PI / 180);
+  cube.rotation.y = -35 * (Math.PI / 180);
+  cube.position.z = -500;
   scene.add( cube );
-  // Plane
-  var geometry = new THREE.PlaneBufferGeometry( 200, 200 );
-  geometry.rotateX( - Math.PI / 2 );
-  var material = new THREE.MeshBasicMaterial( { color: 0xe0e0e0, overdraw: 0.5 } );
-  plane = new THREE.Mesh( geometry, material );
-  scene.add( plane );
 
-  renderer = new THREE.WebGLRenderer();
-  renderer.setClearColor( 0xffffff );
-  renderer.setPixelRatio( 150 );
-  renderer.setSize( 500, 500 );
-  renderer.shadowMapEnabled = true;
-  renderer.shadowMapType = THREE.PCFSoftShadowMap;
-  container.appendChild( renderer.domElement );
-  container.addEventListener( 'mousedown', onDocumentMouseDown, false );
-  container.addEventListener( 'touchstart', onDocumentTouchStart, false );
-  container.addEventListener( 'touchmove', onDocumentTouchMove, false );
+  renderer.render( scene, camera );
+
+  // requestAnimationFrame(render);
+  // function render() {
+  //   renderer.render( scene, camera );
+  //   requestAnimationFrame(render);
+  // }
+
+  // Plane
+  // var geometry = new THREE.PlaneBufferGeometry( 200, 200 );
+  // geometry.rotateX( - Math.PI / 2 );
+  // var material = new THREE.MeshBasicMaterial( { color: 0xe0e0e0, overdraw: 0.5 } );
+  // plane = new THREE.Mesh( geometry, material );
+  // scene.add( plane );
+
+  //container.appendChild( renderer.domElement );
+  //container.addEventListener( 'mousedown', onDocumentMouseDown, false );
+  //container.addEventListener( 'touchstart', onDocumentTouchStart, false );
+  //container.addEventListener( 'touchmove', onDocumentTouchMove, false );
   // window.addEventListener( 'resize', onWindowResize, false );
-  animate();
 }
-function onWindowResize() {
-  windowHalfX = window.innerWidth / 2;
-  windowHalfY = window.innerHeight / 2;
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize( window.innerWidth, window.innerHeight );
-}
-//
-function onDocumentMouseDown( event ) {
+
+ /*
+
+ function onWindowResize() {
+   windowHalfX = window.innerWidth / 2;
+   windowHalfY = window.innerHeight / 2;
+   camera.aspect = window.innerWidth / window.innerHeight;
+   camera.updateProjectionMatrix();
+   renderer.setSize( window.innerWidth, window.innerHeight );
+ }
+
+ function onDocumentMouseDown( event ) {
   event.preventDefault();
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
   document.addEventListener( 'mouseup', onDocumentMouseUp, false );
@@ -109,8 +125,4 @@ function onDocumentTouchMove( event ) {
 function animate() {
   requestAnimationFrame( animate );
   render();
-}
-function render() {
-  plane.rotation.y = cube.rotation.y += ( targetRotation - cube.rotation.y ) * cameraMoveIntensity;
-  renderer.render( scene, camera );
-}
+} */

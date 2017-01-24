@@ -8,7 +8,8 @@ class Preview extends Component {
   }
   render() {
     return (
-      <div id="preview" className={styles.preview}>
+      <div className={styles.preview}>
+        <canvas id="preview"></canvas>
       </div>
     );
   }
