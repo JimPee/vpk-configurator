@@ -4,11 +4,12 @@
   color: white;
   background-color: #009a00;
   padding: 10px 15px;
-  margin: 0 1% 0 0;
+  margin: 5px 0;
   border: none;
   outline: none;
   float: right;
   transition: background-color 0.5s;
+  width: 100%;
 }
 
 .trigger:hover {

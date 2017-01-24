@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import SimulatePanel from './simulate-panel';
 import CreatePanel from './create-panel';
 import styles from './order.css';
+import SimulateFeedback from './simulate-feedback';
 
 const Order = (props) => {
   const { simulateMessages, createMessages, feedback, actions,
@@ -9,23 +10,27 @@ const Order = (props) => {
 
   return (
     <div className='row'>
-      <div className='col-md-3'>
+      <div className='col-md-12'>
         {
-          showSimulate === true ?
+          showSimulate === true && showCreate === false ?
           <SimulatePanel
             messages={simulateMessages}
             orderSimulate={actions.orderSimulate}
             feedback={feedback} /> :
             ''
         }
-      </div>
-      <div className='col-md-3 col-md-offset-6'>
         {
           showCreate === true ?
           <CreatePanel
             messages={createMessages}
-            orderCreate={actions.orderCreate} /> :
+            orderCreate={actions.orderCreate}
+            feedback={feedback} /> :
             ''
+        }
+        {
+          feedback !== undefined && feedback.rate !== undefined && feedback.rate !== '' ?
+          <SimulateFeedback rate={feedback.rate} /> :
+          ''
         }
       </div>
     </div>

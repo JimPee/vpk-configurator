@@ -23,14 +23,10 @@ class AppContainer extends Component {
             <Header />
           </div>
         </div>
-        <div className='row'>
-          <div className='col-md-12'>
-						<OrderContainer />
-					</div>
-        </div>
 				<div className='row'>
 					<div className='col-md-3'>
 						<OverviewContainer />
+            <OrderContainer />
             <MessagesContainer />
 					</div>
 					<div className='col-md-6'>

@@ -2,14 +2,16 @@
   cursor: pointer;
   display: block;
   color: white;
-  background-color: #009a00;
+  background-color: #d35400;
   padding: 10px 15px;
-  margin: 0 0 15px 0;
+  margin: 5px 0;
   border: none;
   outline: none;
+  float: right;
   transition: background-color 0.5s;
+  width: 100%;
 }
 
 .trigger:hover {
-  background-color: #05c105;
+  background-color: #e67e22;
 }
