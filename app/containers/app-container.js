@@ -29,10 +29,10 @@ class AppContainer extends Component {
             <OrderContainer />
             <MessagesContainer />
 					</div>
-					<div className='col-md-6'>
+					<div className='col-md-5'>
 						<PreviewContainer />
 					</div>
-					<div className='col-md-3'>
+					<div className='col-md-4'>
 						<DropdownsContainer />
 					</div>
 				</div>

@@ -11,7 +11,6 @@ class CharSelect extends Component {
     this.toggleBody = this.toggleBody.bind(this);
     this.state = {
       value: this.getCorrectValue(props.char),
-      isOpen: false,
     };
   }
 
@@ -106,14 +105,6 @@ class CharSelect extends Component {
   }
 
   render() {
-    const toggled = {
-      height: '0',
-      padding: '0',
-      overflow: 'hidden',
-    };
-
-    const { isOpen } = this.state;
-
     const headerStyle = {
       backgroundColor: '#979797',
     };
@@ -126,13 +117,8 @@ class CharSelect extends Component {
       <div className={featureStyles.feature}>
         <div className={featureStyles.featureHeader} style={ headerStyle }>
           {this.props.char.char_desc}
-          { isOpen || this.hasError(this.props.char) ?
-            <i onClick={this.toggleBody} className="fa fa-minus"></i>
-            :
-            <i onClick={this.toggleBody} className="fa fa-plus"></i>
-          }
         </div>
-        <div className={featureStyles.featureBody} style={ isOpen || this.hasError(this.props.char) ? {} : toggled }>
+        <div className={featureStyles.featureBody}>
             <div className={this.hasError(this.props.char) ? styles.errorSelect : styles.select}>
               <Select
                 options={this.getOptions(this.props.char)}
