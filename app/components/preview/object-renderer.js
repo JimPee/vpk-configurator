@@ -10,8 +10,9 @@ var mouseXOnMouseDown = 0;
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 var cameraMoveIntensity = 0.5;
+var score;
 
-export function init() {
+export function init(scoreCount = 0) {
   // Get canvas
   var canvas = document.getElementById('preview');
 
@@ -19,9 +20,10 @@ export function init() {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setClearColor( 0xffffff );
   renderer.setPixelRatio( 150 );
-  renderer.setSize( 500, 500 );
+  renderer.setSize( 400, 400 );
+  renderer.setViewport(0, 0, canvas.clientWidth, canvas.clientHeight);
 
-  camera = new THREE.PerspectiveCamera( 70, 1, 200, 900 );
+  camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 200, 1000);
   scene = new THREE.Scene();
 
   // Light
@@ -32,7 +34,7 @@ export function init() {
   scene.add(light1);
 
   // Cube
-  var geometry = new THREE.BoxGeometry( 250, 30, 250 );
+  var geometry = new THREE.BoxGeometry( 250, 20, 250 );
   for (var i = 0; i < geometry.faces.length; i += 2) {
     if (i === 8) {
       geometry.faces[i].color.setHex(0xB19275);
@@ -50,8 +52,27 @@ export function init() {
   cube.castShadow = true;
   cube.rotation.x = 20 * (Math.PI / 180);
   cube.rotation.y = -35 * (Math.PI / 180);
-  cube.position.z = -500;
+  cube.position.z = -700;
+  cube.position.y = 0;
+  cube.position.x = 0;
   scene.add( cube );
+
+  var scoreGeometry = new THREE.BoxGeometry( 10, 20, 250 );
+  var scoreMaterial = new THREE.MeshLambertMaterial( { color: 0xB19279 , overdraw: 0.5 } );
+  score = new THREE.Mesh( scoreGeometry, scoreMaterial );
+  score.castShadow = true;
+  score.rotation.x = 20 * (Math.PI / 180);
+  score.rotation.y = -35 * (Math.PI / 180);
+  score.position.z = -699;
+  score.position.y = 0;
+  score.position.x = 0;
+
+  if (scoreCount === 1) {
+    scene.add( score );
+  } else {
+    scene.remove(score);
+  }
+
 
   renderer.render( scene, camera );
 

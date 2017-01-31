@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Preview from '../components/preview/preview';
+import { getDropdowns } from '../selectors/dropdown-selectors';
 
 class PreviewContainer extends Component {
-
   render() {
     return (
       <div>
@@ -12,4 +13,9 @@ class PreviewContainer extends Component {
   }
 }
 
-export default PreviewContainer;
+
+const mapStateToProps = (state) => ({
+  dropdowns: getDropdowns(state),
+});
+
+export default connect(mapStateToProps)(PreviewContainer);
