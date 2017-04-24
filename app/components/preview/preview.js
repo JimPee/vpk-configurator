@@ -9,7 +9,7 @@ class Preview extends Component {
   }
 
   componentDidMount() {
-    init();
+    //init();
   }
 
   getCorrectValue(char) {
@@ -38,35 +38,33 @@ class Preview extends Component {
 
   render() {
     const values = this.props.dropdowns;
-    let fefcoSheetText = '';
-    for (var i = 0; i < values.length; i++) {
-      if (values[i].char === 'FEFCO_SHEET') {
-        switch (this.getCorrectValue(values[i])) {
-          case '800':
-            fefcoSheetText = 'Sheet not scored';
-            init(0)
-            break;
-          case '801':
-            fefcoSheetText = 'Sheet has 1 score';
-            init(1);
-            break;
-          case '802':
-            fefcoSheetText = 'Sheet has 2 scores';
-            break;
-          case '803':
-            fefcoSheetText = 'Sheet has 3 scores';
-            break;
-          case '809':
-            fefcoSheetText = 'Sheet scores are manually assigned';
-            break;
-          default:
-        }
-      }
-    }
+    // let fefcoSheetText = '';
+    // for (var i = 0; i < values.length; i++) {
+    //   if (values[i].char === 'FEFCO_SHEET') {
+    //     switch (this.getCorrectValue(values[i])) {
+    //       case '800':
+    //         fefcoSheetText = 'Sheet not scored';
+    //         init(0)
+    //         break;
+    //       case '801':
+    //         fefcoSheetText = 'Sheet has 1 score';
+    //         init(1);
+    //         break;
+    //       case '802':
+    //         fefcoSheetText = 'Sheet has 2 scores';
+    //         break;
+    //       case '803':
+    //         fefcoSheetText = 'Sheet has 3 scores';
+    //         break;
+    //       case '809':
+    //         fefcoSheetText = 'Sheet scores are manually assigned';
+    //         break;
+    //       default:
+    //     }
+    //   }
+    // }
     return (
       <div className={styles.preview}>
-        <p style={{ zIndex: '100', position: 'absolute', left: '50px', top: '50px' }}>{fefcoSheetText}</p>
-        <canvas id="preview"></canvas>
       </div>
     );
   }
